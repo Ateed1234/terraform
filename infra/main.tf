@@ -5,7 +5,8 @@ resource "google_storage_bucket" "basura" {
 }
 
 # Make new objects public
-resource "google_storage_bucket_access_control" "public_rule" {
+resource "google_storage_object_access_control" "public_rule" {
+  object = google_storage_bucket_object.el_site.name
   bucket = google_storage_bucket.basura.name
   role = "READER"
   entity = "allUsers"
