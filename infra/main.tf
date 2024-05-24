@@ -21,7 +21,7 @@ resource "google_storage_bucket_object" "el_site" {
 
 #Reserving a static externañ IP 
 resource "google_compute_global_address" "IP_terraform_lb" {
-  name = "terra-lp-IP"
+  name = "terra-lp-ateed"
 }
 
 # Get the managed DNS zone
