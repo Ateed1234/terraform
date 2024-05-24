@@ -70,7 +70,7 @@ resource "google_compute_target_http_proxy" "lb_terraform" {
 resource "google_compute_global_forwarding_rule" "default" {
   name = "website-forwardig-rule"
   load_balancing_scheme = "EXTERNAL"
-  ip_address = google_compute_global_address.IP_terraform_lb
+  ip_address = google_compute_global_address.IP_terraform_lb.address
   ip_protocol = "TCP"
   port_range = "80"
   target = google_compute_target_http_proxy.lb_terraform.self_link
