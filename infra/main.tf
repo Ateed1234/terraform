@@ -26,7 +26,7 @@ resource "google_compute_global_address" "IP_terraform_lb" {
 
 # Get the managed DNS zone
 data "google_dns_managed_zone" "dns_zone" {
-    name = "ateed-terraform"
+    name = "ateedmuhammad-com"
 }
 
 # Add the ip to the DNS
@@ -68,9 +68,10 @@ resource "google_compute_target_http_proxy" "lb_terraform" {
 #GCP FOrwaring rule
 resource "google_compute_global_forwarding_rule" "default" {
   name = "website-forwardig-rule"
-  load_balancing_scheme = "EXTERNAl"
+  load_balancing_scheme = "EXTERNAL"
   ip_address = google_compute_global_address.IP_terraform_lb
   ip_protocol = "TCP"
   port_range = "80"
   target = google_compute_target_http_proxy.lb_terraform.self_link
 }
+
