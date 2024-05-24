@@ -31,7 +31,7 @@ data "google_dns_managed_zone" "dns_zone" {
 
 # Add the ip to the DNS
 resource "google_dns_record_set" "website" {
-  name = "website.${google_dns_managed_zone.dns_zone.dns_name}"
+  name = "website.${data.google_dns_managed_zone.dns_zone}"
   type = "A"
   managed_zone = data.google_dns_managed_zone.dns_zone.name
   rrdatas = [google_compute_global_address.IP_terraform_lb.address]
